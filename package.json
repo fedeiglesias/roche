@@ -1,0 +1,73 @@
+{
+  "name": "roche-coding-challenge",
+  "version": "1.0.0",
+  "description": "Roche coding challenge - Patients glucose measure",
+  "main": "index.js",
+  "scripts": {
+    "check-types": "tsc",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --color --port 3000",
+    "build": "cross-env NODE_ENV=production webpack --color",
+    "start": "serve dist -l 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/fedeiglesias/roche-coding-challenge.git"
+  },
+  "keywords": [
+    "babel7",
+    "webpack4",
+    "typescript",
+    "jest",
+    "react",
+    "redux",
+    "redux-observable",
+    "reselect",
+    "styled-components",
+    "ramda"
+  ],
+  "author": "Federico Iglesias <fede.iglesiasc@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://gitlab.com/fedeiglesias/roche-coding-challenge#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "@babel/runtime": "^7.6.2",
+    "axios": "^0.19.0",
+    "es6-promise-promise": "^1.0.0",
+    "polished": "^3.4.1",
+    "ramda": "^0.26.1",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-redux": "^7.1.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.4",
+    "redux-observable": "^1.2.0",
+    "reselect": "^4.0.0",
+    "rxjs": "^6.5.3",
+    "styled-components": "^4.4.0",
+    "typesafe-actions": "^4.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/node": "^12.7.8",
+    "@types/ramda": "^0.26.26",
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
+    "@types/react-redux": "^7.1.4",
+    "@types/styled-components": "^4.1.19",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.4",
+    "cross-env": "^6.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "redux-devtools-extension": "^2.13.8",
+    "serve": "^11.2.0",
+    "terser-webpack-plugin": "^2.1.2",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  }
+}

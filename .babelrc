@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "@babel/env",
+    "@babel/react",
+    "@babel/typescript"
+  ],
+  "plugins": [
+    /**
+    * Plugin added to fix "Babel 7 - ReferenceError: regeneratorRuntime is not defined"
+    */
+    [ "@babel/plugin-transform-runtime", 
+      { "regenerator": true }
+    ]
+  ]
+}
