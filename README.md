@@ -1,5 +1,7 @@
 # Roche coding challenge
 
+[Challenge description](/challenge/README.md)
+
 
 ###### INSTALL
 
