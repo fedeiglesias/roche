@@ -1,5 +1,4 @@
-service:
-  name: roche
+service: roche
 
 # app and org for use with dashboard.serverless.com
 app: roche
@@ -29,7 +28,7 @@ custom:
     certificateArn: arn:aws:acm:us-east-1:989257975727:certificate/735f4bd6-85db-4cd6-89a2-dcec2bec7d49
 
   # Bucket name
-  s3Bucket: ${self:service.name}-bucket-client
+  s3Bucket: ${self:service}-bucket-client
 
   s3Sync:
     - bucketName: ${self:custom.s3Bucket}
@@ -43,12 +42,13 @@ custom:
   scripts:
     hooks:
       # Recreate API Gateway & Route53 custom domain for API
-      "package:initialize": "sls delete_domain && sls create_domain"
+      # "package:initialize": "sls delete_domain && sls create_domain"
       # Build Client
       "before:deploy:deploy": npm run build
 
   customDomain:
     domainName: api.${self:custom.domain.subdomain}
+    autoDomain: true
     endpointType: "regional"
     securityPolicy: tls_1_2
 
