@@ -1,4 +1,5 @@
-service: roche
+service:
+  name: roche
 
 # app and org for use with dashboard.serverless.com
 app: roche
