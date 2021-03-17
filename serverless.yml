@@ -42,7 +42,7 @@ custom:
   scripts:
     hooks:
       # Recreate API Gateway & Route53 custom domain for API
-      # "package:initialize": "sls delete_domain && sls create_domain"
+      "package:initialize": "sls delete_domain && sls create_domain"
       # Build Client
       "before:deploy:deploy": npm run build
 
