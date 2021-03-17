@@ -39,7 +39,8 @@ const config = {
       Promise: "es6-promise-promise",
     }),
     new webpack.DefinePlugin({
-      "process.env.PROD_API_ENDPOINT": "'http://localhost:5000/data.json'",
+      "process.env.PROD_API_ENDPOINT":
+        "'https://api.roche.fedeiglesias.com/data'",
       "process.env.DEV_API_ENDPOINT": "'http://localhost:3000/data.json'",
     }),
   ],
