@@ -11,7 +11,16 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+
+  # Duration for CloudWatch log retention (default: forever)
+  logRetentionInDays: 14
+
+  # Version of hashing algorithm used by Serverless Framework for function packaging
   lambdaHashingVersion: 20201221
+
+  # Use function versioning (enabled by default)
+  versionFunctions: false
+
   apiGateway:
     shouldStartNameWithService: true
 
