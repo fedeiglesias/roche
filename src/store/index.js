@@ -1,11 +1,11 @@
-import { applyMiddleware, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "@redux-devtools/extension";
 
-import rootReducer, { initialState } from './reducers';
-import epicMiddleware, { rootEpic } from './epics';
+import rootReducer, { initialState } from "./reducers";
+import epicMiddleware, { rootEpic } from "./epics";
 
 const composeEnhancer = composeWithDevTools({
-  name: 'Roche app'
+  name: "Roche app",
 });
 
 const store = createStore(

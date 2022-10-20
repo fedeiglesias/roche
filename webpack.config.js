@@ -5,13 +5,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 var Promise = require("es6-promise-promise");
 const webpack = require("webpack");
 
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === "prod";
 
 const config = {
   mode: isProd ? "production" : "development",
-  entry: {
-    index: ["@babel/polyfill", "./src/index.tsx"],
-  },
+  entry: "./src/index.tsx",
   output: {
     path: resolve(__dirname, "dist"),
     filename: "[name].js",
@@ -22,9 +20,11 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: "babel-loader",
+        test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
       },
     ],
   },
@@ -41,26 +41,25 @@ const config = {
     new webpack.DefinePlugin({
       "process.env.PROD_API_ENDPOINT":
         "'https://api.roche.fedeiglesias.com/data'",
-      "process.env.DEV_API_ENDPOINT": "'http://localhost:3000/data.json'",
+      "process.env.DEV_API_ENDPOINT": "'http://localhost:3000/dev/data'",
     }),
   ],
 };
 
-if (isProd) {
+if (isProd)
   config.optimization = {
     minimize: true,
     minimizer: [new TerserWebpackPlugin()],
   };
-} else {
-  // https://webpack.js.org/configuration/dev-server
+
+if (!isProd)
   config.devServer = {
     open: true,
     hot: true,
     compress: true,
-    disableHostCheck: true,
-    stats: "errors-only",
-    overlay: true,
+    client: {
+      overlay: true,
+    },
   };
-}
 
 module.exports = config;
