@@ -28,6 +28,29 @@ const config = {
       },
     ],
   },
+  performance: {
+    // Turn off size warnings for entry points
+    hints: false,
+  },
+  optimization: {
+    runtimeChunk: "single",
+    splitChunks: {
+      cacheGroups: {
+        // TODO: Customize code splitting to your needs
+        vendor: {
+          name: "vendor",
+          test: /[\\/]node_modules[\\/]/,
+          chunks: "all",
+        },
+        components: {
+          name: "components",
+          test: /[\\/]src[\\/]components[\\/]/,
+          chunks: "all",
+          minSize: 0,
+        },
+      },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
